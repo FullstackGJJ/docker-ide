@@ -10,7 +10,7 @@
 
     //"theme": "dark",
 
-    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+    "defaultProfile": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
 
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
@@ -34,17 +34,70 @@
         "list":
         [
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "startingDirectory": "C:/Users/Hank/",
+                "guid": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
                 "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
-                "colorScheme" : "Solarized Dark",
+                "name": "Ubuntu Text Editor",
+                "commandline": "wsl.exe -d Ubuntu",
+                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
+                "colorScheme" : "Solarized Light",
+                "tabColor": "#fdf6e3",
                 "cursorColor" : "#FFFFFF",
                 "cursorShape": "vintage",
                 "fontFace" : "Comic Code",
                 "padding" : "5, 5, 5, 5",
                 "suppressApplicationTitle": true,
-                "tabTitle": "Ubuntu"
+                "tabTitle": "Text Editor"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": false,
+                "name": "Runtime/Compiler",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme" : "Solarized Dark",
+                "tabColor": "#002b36",
+                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
+                "cursorColor" : "#FFFFFF",
+                "cursorShape": "vintage",
+                "fontFace" : "Comic Code",
+                "padding" : "5, 5, 5, 5",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Runtime/Compiler",
+                "startingDirectory": "C:/Users/Hank/"
+            },
+            {
+                "guid": "{f1bcb6a6-c28b-480c-bab7-d06682f285cf}",
+                "hidden": false,
+                "name": "Terminal",
+                "commandline": "wsl.exe -d Ubuntu",
+                "colorScheme" : "Raspberry",
+                "tabColor": "#3C0315",
+                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
+                "cursorColor" : "#FFFFFF",
+                "cursorShape": "vintage",
+                "fontFace" : "Comic Code",
+                "padding" : "5, 5, 5, 5",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Terminal",
+                "startingDirectory": "C:/Users/Hank/"
+            },
+            {
+                "guid": "{2fccd6dc-4818-4fd1-889d-c83f9e2e42e7}",
+                "hidden": false,
+                "name": "Useful Commands",
+                "commandline": "wsl.exe -d Ubuntu",
+                "acrylicOpacity": 0.7,
+                "colorScheme" : "Frost",
+                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
+                "cursorColor" : "#000000",
+                "cursorShape": "vintage",
+                "fontFace" : "Comic Code",
+                "tabColor" : "#FFFFFF",
+                "padding" : "5, 5, 5, 5",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Useful Commands",
+                "startingDirectory": "C:/Users/Hank/",
+                "useAcrylic": true
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -63,17 +116,6 @@
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{ba50f801-2d96-4517-a737-575f32f0fb61}",
-                "name" : "Ubuntu",
-                "source" : "Windows.Terminal.Wsl",
-                "colorScheme" : "Raspberry",
-                "cursorColor" : "#FFFFFF",
-                "fontFace" : "Cascadia Code",
-                "padding" : "5, 5, 5, 5",
-                "suppressApplicationTitle": true,
-                "tabTitle": "Ubuntu"
             }
         ]
     },
@@ -101,6 +143,28 @@
             "red" : "#BD0940",
             "white" : "#FFFFFD",
             "yellow" : "#E0DE48"
+        },
+        {
+            "name" : "Frost",
+            "theme": "light",
+            "background" : "#FFFFFF",
+            "black" : "#3C5712",
+            "blue" : "#17b2ff",
+            "brightBlack" : "#749B36",
+            "brightBlue" : "#27B2F6",
+            "brightCyan" : "#13A8C0",
+            "brightGreen" : "#89AF50",
+            "brightPurple" : "#F2A20A",
+            "brightRed" : "#F49B36",
+            "brightWhite" : "#741274",
+            "brightYellow" : "#991070",
+            "cyan" : "#3C96A6",
+            "foreground" : "#000000",
+            "green" : "#6AAE08",
+            "purple" : "#991070",
+            "red" : "#8D0C0C",
+            "white" : "#6E386E",
+            "yellow" : "#991070"
         }
     ],
 
@@ -112,8 +176,8 @@
         // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
-        { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-        { "command": "paste", "keys": "ctrl+v" },
+        //{ "command": {"action": "copy", "singleLine": false }, "keys": "insert" },
+        //{ "command": "paste", "keys": "shift+insert" },
 
         // Press Ctrl+Shift+F to open the search box
         { "command": "find", "keys": "ctrl+shift+f" },
