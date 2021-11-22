@@ -1,0 +1,3 @@
+# To use the latest GHC
+resolver: ghc-9.0.1
+resolver: nightly-2021-06-19
