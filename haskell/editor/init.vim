@@ -11,6 +11,7 @@ Plug 'OrangeT/vim-csharp'
 Plug 'tpope/vim-vinegar'
 Plug 'nice/sweater'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
