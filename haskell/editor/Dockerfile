@@ -46,6 +46,7 @@ RUN curl -sL install-node.vercel.app/lts | bash -s -- --yes
 
 COPY zshrc root/.zshrc
 COPY init.vim root/.config/nvim/init.vim
+# COPY coc-settings.json root/.config/nvim/coc-settings.json
 COPY tmux.conf root/.tmux.conf
 COPY config.json root/.docker/config.json
 COPY tmux.conf .tmux.conf
@@ -53,7 +54,9 @@ COPY tmux.conf .tmux.conf
 # Install Vim Plug for plugin management
 RUN curl -fLo root/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Install plugins with vim until neovim fixes asynchronous installer
-RUN vim +PlugInstall +qall >> /dev/null
+#   still have to do PlugInstall in neovim in order to use coc.nvim properly
+# RUN vim +PlugInstall +qall >> /dev/null
+RUN nvim --headless +PlugInstall +qall >> /dev/null
 
 # Install Tmux Plugin Manager
 RUN git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm

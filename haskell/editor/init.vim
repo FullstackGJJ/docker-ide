@@ -12,12 +12,15 @@ Plug 'tpope/vim-vinegar'
 Plug 'nice/sweater'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
 let g:netrw_banner = 1
 
 :syntax enable 
+:syntax on
+:filetype plugin indent on
 :set encoding=utf-8
 :set ruler number relativenumber
 :set hlsearch
