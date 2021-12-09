@@ -26,7 +26,6 @@ let g:netrw_banner = 1
 
 :call setreg('z',':set nonumber:set norelativenumber','c')
 :call setreg('x',':set number:set relativenumber','c')
-:inoremap <C-X> <C-X><C-L><C-N><C-R>=CompleteLineWithSingleMatch()<CR>
 :inoremap <C-K> <C-R>=SelectPrevAutoComplete()<CR>
 :inoremap <C-J> <C-R>=SelectNextAutoComplete()<CR>
 :inoremap <C-H> <Left>
@@ -90,14 +89,6 @@ endfunction
 
 function! TotalMatches()
     %s///gn
-endfunction
-
-function! CompleteLineWithSingleMatch()
-    if pumvisible() == 1
-        return ""
-    else
-        return "\<C-N>"
-    endif
 endfunction
 
 function! AlignToColumn(column)
