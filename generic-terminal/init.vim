@@ -1,15 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'vim-scripts/Relaxed-Green'
-Plug 'vim-scripts/summerfruit256.vim'
-Plug 'tpope/vim-vividchalk'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'OrangeT/vim-csharp'
 Plug 'tpope/vim-vinegar'
-Plug 'nice/sweater'
 Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
@@ -44,7 +36,6 @@ let g:netrw_banner = 1
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
 :noremap <S-E> :Explore<CR>
-:noremap <C-G> :call NumberToggle()<CR>:<BS>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l
@@ -57,14 +48,11 @@ let g:netrw_banner = 1
 :map \ <Plug>(easymotion-prefix)
 :noremap <C-H> _
 :noremap <C-L> $
-:noremap <C-P> :noh<CR>:<BS>
-:noremap <Home> :tabnew<CR>
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 
 :vnoremap <C-C> "+y
 :vnoremap <C-K> :call FocusRange()<CR>:<BS>
-:set runtimepath+=/full/path/to/plugin/directory/
 
 function! TabOrComplete()
     if col('.')>1 && strpart(getline('.'), col('.')-2, 3) =~ '^\w'
@@ -120,26 +108,6 @@ function! AlignToColumn(column)
     elseif a:column < currentPosition
         :execute ":normal" currentPosition . "|" . "d" . -offset . "h"
     else
-    endif
-endfunction
-
-function! RainbowOn()
-    :normal :RainbowParenthesesToggle
-    :normal :RainbowParenthesesLoadRound
-    :normal :RainbowParenthesesLoadSquare
-    :normal :RainbowParenthesesLoadBraces
-    :normal :RainbowParenthesesLoadChevrons
-endfunction
-
-function! RainbowOff()
-    :normal :RainbowParenthesesToggle
-endfunction
-
-function! NumberToggle()
-    if (&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
     endif
 endfunction
 

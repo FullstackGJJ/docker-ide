@@ -19,19 +19,19 @@ RUN apk add -U --no-cache \
     tmux \
     zsh
 
+RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
+
 COPY zshrc root/.zshrc
 COPY init.vim root/.config/nvim/init.vim
 COPY tmux.conf root/.tmux.conf
 COPY config.json root/.docker/config.json
 
-RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
-
 # Install Vim Plug for plugin management
 RUN curl -fLo root/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Install plugins
+# Install nvim plugins
 RUN nvim --headless +PlugInstall +qall >> /dev/null
 
 # Install Tmux Plugin Manager
 RUN git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm
-# Install plugins
+# Install tmux plugins
 RUN .tmux/plugins/tpm/bin/install_plugins
