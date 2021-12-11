@@ -3,8 +3,8 @@ LABEL Description="This image is to used to house haskell runtime tools" Version
 
 RUN apt-get update && \
     apt-get -y install \ 
-    zsh \
     bash
+    zsh \
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
