@@ -18,59 +18,61 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
+    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "profiles": 
     {
         "defaults": {},
         "list": 
         [
             {
-                "colorScheme": "Solarized Light",
-                "commandline": "wsl.exe -d Ubuntu",
-                "cursorColor": "#FFFFFF",
-                "cursorShape": "vintage",
-                "fontFace": "Comic Code",
-                "guid": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
-                "hidden": false,
-                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Ubuntu Text Editor",
-                "padding": "5, 5, 5, 5",
-                "startingDirectory": "C:/Users/Hank/",
-                "suppressApplicationTitle": true,
-                "tabColor": "#FDF6E3",
-                "tabTitle": "Text Editor"
-            },
-            {
                 "colorScheme": "Solarized Dark",
                 "cursorColor": "#FFFFFF",
-                "cursorShape": "vintage",
+                "cursorShape": "filledBox",
                 "fontFace": "Comic Code",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Runtime/Compiler",
+                "name": "Host Terminal",
                 "padding": "5, 5, 5, 5",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "C:/Users/Hank/",
                 "suppressApplicationTitle": true,
                 "tabColor": "#002B36",
-                "tabTitle": "Runtime/Compiler"
+                "tabTitle": "Host Terminal"
+            },
+            {
+                "colorScheme": "Solarized Light",
+                "commandline": "wsl.exe -d Ubuntu",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "filledBox",
+                "fontFace": "Comic Code",
+                "guid": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
+                "hidden": false,
+                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
+                "name": "Docker Terminal",
+                "padding": "5, 5, 5, 5",
+                "startingDirectory": "C:/Users/Hank/",
+                "suppressApplicationTitle": true,
+                "tabColor": "#FDF6E3",
+                "tabTitle": "Docker Terminal"
             },
             {
                 "colorScheme": "One Half Dark",
                 "commandline": "wsl.exe -d Ubuntu",
-                "cursorShape": "vintage",
+                "cursorShape": "filledBox",
                 "fontFace": "Comic Code",
+                "hidden": false,
                 "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Interactive",
+                "name": "Interactive Shell",
                 "startingDirectory": "C:/Users/Hank/",
+                "suppressApplicationTitle": true,
                 "tabTitle": "Interactive"
             },
             {
                 "colorScheme": "Raspberry",
                 "commandline": "wsl.exe -d Ubuntu",
                 "cursorColor": "#FFFFFF",
-                "cursorShape": "vintage",
+                "cursorShape": "filledBox",
                 "fontFace": "Comic Code",
                 "guid": "{f1bcb6a6-c28b-480c-bab7-d06682f285cf}",
                 "hidden": false,
@@ -377,4 +379,3 @@
         }
     ]
 }
-
