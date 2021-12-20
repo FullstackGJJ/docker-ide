@@ -27,6 +27,15 @@ RUN apt-get -y install \
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
+## For batmansay ##
+RUN apt-get update && \
+    apt-get -y install \
+    bsdmainutils \
+    figlet
+
+RUN git clone https://github.com/FullstackGJJ/batmansay ~/.oh-my-zsh/plugins/batmansay
+###################
+
 COPY zshrc root/.zshrc
 
 RUN git clone https://github.com/rbenv/ruby-build.git

@@ -17,4 +17,13 @@ RUN apk add -U --no-cache \
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
+## For batmansay ##
+RUN apt-get update && \
+    apt-get -y install \
+    util-linux \
+    figlet
+
+RUN git clone https://github.com/FullstackGJJ/batmansay ~/.oh-my-zsh/plugins/batmansay
+###################
+
 COPY zshrc root/.zshrc

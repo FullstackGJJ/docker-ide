@@ -13,13 +13,14 @@ RUN apt-get update && \
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
-# For batmansay
+## For batmansay ##
 RUN apt-get update && \
-    apt-get -y install \ 
+    apt-get -y install \
     bsdmainutils \
     figlet
 
 RUN git clone https://github.com/FullstackGJJ/batmansay ~/.oh-my-zsh/plugins/batmansay
+###################
 
 # For racket completion in zsh
 RUN git clone https://github.com/FullstackGJJ/shell-completion ~/.oh-my-zsh/plugins/racket-completion
