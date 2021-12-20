@@ -1,5 +1,5 @@
 FROM debian:11
-LABEL Description="This image is to used to house node 14 runtime and necessary environment for ts-portal" Version="1.0"
+LABEL Description="This image is to used to house Ruby runtime and necessary environment for certain projects" Version="1.0"
 
 # Install ruby-build required stuff
 RUN apt-get update && apt-get -y install \

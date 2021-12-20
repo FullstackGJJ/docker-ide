@@ -16,6 +16,7 @@ RUN apk add -U --no-cache \
     mandoc-apropos \
     ncurses \
     neovim \
+    neovim-doc \
     nodejs-current \
     npm \
     openssh-client \

@@ -19,6 +19,7 @@ RUN apt-get update && \
     lsb-release \
     man \
     neovim \
+    neovim-doc \
     openssh-client \
     tmux \
     vim \
