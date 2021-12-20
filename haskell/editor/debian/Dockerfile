@@ -8,7 +8,6 @@ RUN apt-get update && \
     bash \
     ca-certificates \
     curl \
-    curl \
     git \
     gnupg \
     less \
