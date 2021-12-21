@@ -18,8 +18,7 @@ RUN apk add -U --no-cache \
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
 ## For batmansay ##
-RUN apt-get update && \
-    apt-get -y install \
+RUN apk add -U --no-cache \
     util-linux \
     figlet
 
