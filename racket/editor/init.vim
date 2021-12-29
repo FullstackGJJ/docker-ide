@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Rainbow-Parenthesis'
+Plug 'vim-scripts/Rainbow-Parenthesis'
 Plug 'wlangstroth/vim-racket'
 
 call plug#end()
