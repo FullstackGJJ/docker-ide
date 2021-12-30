@@ -3,12 +3,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/Rainbow-Parenthesis'
+Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 
 let g:netrw_banner = 1
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
+let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
+let g:rainbow_conf = {'ctermfgs': lightcolors}
 
 :syntax enable 
 :syntax on
