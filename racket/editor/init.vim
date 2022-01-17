@@ -14,7 +14,7 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
 let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
-let g:rainbow_conf = {'ctermfgs': lightcolors}
+let g:rainbow_conf = {'ctermfgs': darkcolors}
 
 :syntax enable 
 :syntax on

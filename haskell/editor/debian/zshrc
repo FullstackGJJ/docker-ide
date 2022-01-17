@@ -103,3 +103,5 @@ alias tmux='tmux -u'
 
 # To enable shell tab completion for standard stack arguments
 eval "$(stack --bash-completion-script stack)"
+
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"

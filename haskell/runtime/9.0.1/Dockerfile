@@ -3,8 +3,10 @@ LABEL Description="This image is to used to house haskell runtime tools" Version
 
 RUN apt-get update && \
     apt-get -y install \ 
-    bash
-    zsh \
+    bash \
+    curl \
+    git \
+    zsh 
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
 
@@ -25,4 +27,4 @@ RUN git clone https://github.com/FullstackGJJ/batmansay ~/.oh-my-zsh/plugins/bat
 RUN stack install ghcid
 
 # Install retrie
-RUN stack install retrie
+# RUN stack install retrie

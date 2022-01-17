@@ -19,46 +19,40 @@ RUN apt-get update && \
     lsb-release \
     man \
     neovim \
-    neovim-doc \
     openssh-client \
     tmux \
     vim \
     zlib1g-dev \
     zsh
 
-# Add Docker's official GPG key
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-# Setup stable docker repository
-RUN echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# Install Docker Engine
-RUN apt-get update && \
-    apt-get -y install \
-    docker-ce \
-    docker-ce-cli \
-    containerd.io
-
+# Install oh my zsh
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
+# Install node for coc.nvim
 RUN curl -sL install-node.vercel.app/lts | bash -s -- --yes
+# Install haskell stack to be able to use haskell language server
+RUN curl -sSL https://get.haskellstack.org/ | sh
+# Install ghcup to be able to install haskell language server
+RUN zsh -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 
 COPY zshrc root/.zshrc
+COPY stack.yaml root/.stack/global-project/stack.yaml
 COPY init.vim root/.config/nvim/init.vim
-# COPY coc-settings.json root/.config/nvim/coc-settings.json
+COPY coc-settings.json root/.config/nvim/coc-settings.json
 COPY tmux.conf root/.tmux.conf
 COPY config.json root/.docker/config.json
 COPY tmux.conf .tmux.conf
 
 # Install Vim Plug for plugin management
 RUN curl -fLo root/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# Install plugins with vim until neovim fixes asynchronous installer
-#   still have to do PlugInstall in neovim in order to use coc.nvim properly
-# RUN vim +PlugInstall +qall >> /dev/null
+# Install VIM plugins
 RUN nvim --headless +PlugInstall +qall >> /dev/null
 
+# Install haskell language server
+RUN $HOME/.ghcup/bin/ghcup install hls
+
+## Currently rely on system's TMUX instead of wanting docker container tmux
 # Install Tmux Plugin Manager
-RUN git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm
+# RUN git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm
 # Install plugins
-RUN .tmux/plugins/tpm/bin/install_plugins
+# RUN .tmux/plugins/tpm/bin/install_plugins

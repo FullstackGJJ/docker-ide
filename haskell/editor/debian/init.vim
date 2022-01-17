@@ -1,16 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'vim-scripts/Relaxed-Green'
-Plug 'vim-scripts/summerfruit256.vim'
-Plug 'tpope/vim-vividchalk'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'OrangeT/vim-csharp'
-Plug 'tpope/vim-vinegar'
-Plug 'nice/sweater'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-vinegar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 
@@ -37,7 +29,6 @@ colorscheme peachpuff
 
 :call setreg('z',':set nonumber:set norelativenumber','c')
 :call setreg('x',':set number:set relativenumber','c')
-:inoremap <C-X> <C-X><C-L><C-N><C-R>=CompleteLineWithSingleMatch()<CR>
 :inoremap <C-K> <C-R>=SelectPrevAutoComplete()<CR>
 :inoremap <C-J> <C-R>=SelectNextAutoComplete()<CR>
 :inoremap <C-H> <Left>
@@ -45,10 +36,8 @@ colorscheme peachpuff
 :inoremap <C-K> <Up>
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
-:noremap <C-Space> @@
 :noremap <S-W> :w<CR>
 :noremap <S-E> :Explore<CR>
-:noremap <C-G> :call NumberToggle()<CR>:<BS>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l
@@ -61,15 +50,11 @@ colorscheme peachpuff
 :map \ <Plug>(easymotion-prefix)
 :noremap <C-H> _
 :noremap <C-L> $
-:noremap <C-P> :noh<CR>:<BS>
-:noremap <C-N> :NERDTree<CR>
-:noremap <Home> :tabnew<CR>
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 
 :vnoremap <C-C> "+y
 :vnoremap <C-K> :call FocusRange()<CR>:<BS>
-:set runtimepath+=/full/path/to/plugin/directory/
 
 function! TabOrComplete()
     if col('.')>1 && strpart(getline('.'), col('.')-2, 3) =~ '^\w'
@@ -109,14 +94,6 @@ function! TotalMatches()
     %s///gn
 endfunction
 
-function! CompleteLineWithSingleMatch()
-    if pumvisible() == 1
-        return ""
-    else
-        return "\<C-N>"
-    endif
-endfunction
-
 function! AlignToColumn(column)
     let currentPosition = virtcol(".")
     let offset = a:column - currentPosition
@@ -125,26 +102,6 @@ function! AlignToColumn(column)
     elseif a:column < currentPosition
         :execute ":normal" currentPosition . "|" . "d" . -offset . "h"
     else
-    endif
-endfunction
-
-function! RainbowOn()
-    :normal :RainbowParenthesesToggle
-    :normal :RainbowParenthesesLoadRound
-    :normal :RainbowParenthesesLoadSquare
-    :normal :RainbowParenthesesLoadBraces
-    :normal :RainbowParenthesesLoadChevrons
-endfunction
-
-function! RainbowOff()
-    :normal :RainbowParenthesesToggle
-endfunction
-
-function! NumberToggle()
-    if (&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
     endif
 endfunction
 
