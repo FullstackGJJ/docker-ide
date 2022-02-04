@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/obsession'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
@@ -42,7 +43,6 @@ let g:rainbow_conf = {'ctermfgs': darkcolors}
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
-:noremap <S-E> :Explore<CR>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l

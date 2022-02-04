@@ -8,6 +8,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/obsession'
 
 call plug#end()
 
@@ -52,7 +53,6 @@ endif
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
-:noremap <S-E> :Explore<CR>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l

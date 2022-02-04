@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/obsession'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 
@@ -37,7 +38,11 @@ colorscheme peachpuff
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
+<<<<<<< HEAD
 :noremap <S-E> :Explore<CR>
+=======
+:noremap <C-G> :call NumberToggle()<CR>:<BS>
+>>>>>>> 5cc42ea (added vim plugins)
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l

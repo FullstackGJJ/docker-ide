@@ -8,6 +8,7 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/obsession'
 
 call plug#end()
 
@@ -46,7 +47,6 @@ let g:ale_linters = {
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
-:noremap <S-E> :Explore<CR>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l

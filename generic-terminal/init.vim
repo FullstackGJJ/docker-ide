@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/obsession'
 Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
@@ -34,7 +35,6 @@ let g:netrw_banner = 1
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
-:noremap <S-E> :Explore<CR>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l
