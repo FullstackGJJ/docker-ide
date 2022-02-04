@@ -8,7 +8,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/obsession'
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -63,8 +63,6 @@ endif
 :noremap <C-K> G?<CR>
 :map <Space> <Plug>(easymotion-s)
 :map \ <Plug>(easymotion-prefix)
-:noremap <C-H> _
-:noremap <C-L> $
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 

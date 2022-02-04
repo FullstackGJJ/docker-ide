@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/obsession'
+Plug 'tpope/vim-obsession'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
@@ -53,8 +53,6 @@ let g:rainbow_conf = {'ctermfgs': darkcolors}
 :noremap <C-K> G?<CR>
 :map <Space> <Plug>(easymotion-s)
 :map \ <Plug>(easymotion-prefix)
-:noremap <C-H> _
-:noremap <C-L> $
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 

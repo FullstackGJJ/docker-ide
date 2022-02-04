@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/obsession'
+Plug 'tpope/vim-obsession'
 Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
@@ -45,8 +45,6 @@ let g:netrw_banner = 1
 :noremap <C-K> G?<CR>
 :map <Space> <Plug>(easymotion-s)
 :map \ <Plug>(easymotion-prefix)
-:noremap <C-H> _
-:noremap <C-L> $
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 
