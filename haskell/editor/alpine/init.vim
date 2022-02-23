@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-obsession'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 
@@ -37,7 +38,6 @@ colorscheme peachpuff
 :inoremap <C-L> <Right>
 :inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 :noremap <S-W> :w<CR>
-:noremap <S-E> :Explore<CR>
 :noremap <S-Right> gt
 :noremap <S-Left> gT
 :noremap <Right> l
@@ -48,8 +48,6 @@ colorscheme peachpuff
 :noremap <C-K> G?<CR>
 :map <Space> <Plug>(easymotion-s)
 :map \ <Plug>(easymotion-prefix)
-:noremap <C-H> _
-:noremap <C-L> $
 :noremap <C-CR> <S-V>"+y
 :vnoremap // y/<C-R>"<CR>
 :vnoremap <C-N> :normal 

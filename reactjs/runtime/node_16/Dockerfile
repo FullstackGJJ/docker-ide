@@ -13,6 +13,7 @@ RUN apk add -U --no-cache \
     mandoc \
     mandoc-apropos \
     python2 \
+    python3 \
     zsh
 
 RUN curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh || true
