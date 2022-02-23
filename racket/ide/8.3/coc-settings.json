@@ -1,0 +1,9 @@
+{
+  "languageserver": {
+    "racket": {
+      "command": "xvfb-run",
+      "args": ["--auto-servernum", "racket", "--lib", "racket-langserver"],
+      "filetypes": ["scheme", "racket"]
+    }
+  }
+}

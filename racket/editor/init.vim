@@ -5,6 +5,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
