@@ -1,17 +1,37 @@
 call plug#begin('~/.vim/plugged')
 
+" VIM quality of life stuff
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
+
+" Useful racket plugins
 Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
+
+" Language Server protocol
 Plug 'neovim/nvim-lspconfig'
+
+" Autocomplete functionality
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+
+" Search functionality
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'
+
+" Status line functionality
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Aligning text
+Plug 'godlygeek/tabular'
+
 call plug#end()
+
+set completeopt=menu,menuone,noselect
 
 let g:netrw_banner = 1
 
@@ -20,6 +40,69 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
 let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
 let g:rainbow_conf = {'ctermfgs': darkcolors}
+
+lua <<EOF
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    mapping = {
+      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, -- For luasnip users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  require('lspconfig').racket_langserver.setup {
+    capabilities = capabilities,
+    cmd = { 'xvfb-run', '--auto-servernum', 'racket', '--lib', 'racket-langserver' }
+  }
+EOF
 
 lua << END
 require('lualine').setup{
@@ -30,10 +113,6 @@ require('lualine').setup{
     }
 }
 END
-
-lua << EOF
-require('lspconfig').racket_langserver.setup{ cmd = { 'xvfb-run', '--auto-servernum', 'racket', '--lib', 'racket-langserver' }}
-EOF
 
 " LSP config (the mappings used in the default file don't quite work right)
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -72,15 +151,11 @@ colorscheme peachpuff
 
 call setreg('z',':set nonumber:set norelativenumber','c')
 call setreg('x',':set number:set relativenumber','c')
-inoremap <C-K> <C-R>=SelectPrevAutoComplete()<CR>
-inoremap <C-J> <C-R>=SelectNextAutoComplete()<CR>
 inoremap <C-H> <Left>
 inoremap <C-J> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
-inoremap <Tab> <C-R>=TabOrComplete()<CR><C-R>=TabOrCompleteWithSingleMatch()<CR>
 noremap <S-W> :w<CR>
-noremap <S-E> :Explore<CR>
 noremap <S-Right> gt
 noremap <S-Left> gT
 noremap <Right> l
@@ -93,55 +168,6 @@ vnoremap // y/<C-R>"<CR>
 vnoremap <C-N> :normal 
 vnoremap <C-C> "+y
 vnoremap <C-K> :call FocusRange()<CR>:<BS>
-
-function! TabOrComplete()
-    if col('.')>1 && strpart(getline('.'), col('.')-2, 3) =~ '^\w'
-        return "\<C-N>\<C-P>"
-    else
-        return "\<Tab>"
-    endif
-endfunction
-
-function! SelectPrevAutoComplete()
-    if pumvisible() != 0
-        return "\<C-P>"
-    else
-        return "\<C-K>"
-    endif
-endfunction
-
-function! SelectNextAutoComplete()
-    if pumvisible() != 0
-        return "\<C-N>"
-    else
-        return "\<C-J>"
-    endif
-endfunction
-
-function! TabOrCompleteWithSingleMatch()
-    if col('.')>1 && strpart(getline('.'), col('.')-2, 3) =~ '^\w' && pumvisible() == 0
-        return "\<C-N>"
-    elseif col('.')>1 && strpart(getline('.'), col('.')-2, 3) =~ '^\w'
-        return "\<C-N>\<C-P>"
-    else
-        return ""
-    endif
-endfunction
-
-function! TotalMatches()
-    %s///gn
-endfunction
-
-function! AlignToColumn(column)
-    let currentPosition = virtcol(".")
-    let offset = a:column - currentPosition
-    if a:column > currentPosition
-        :execute ":normal" currentPosition . "|" . offset . "i " . "\<Esc>"
-    elseif a:column < currentPosition
-        :execute ":normal" currentPosition . "|" . "d" . -offset . "h"
-    else
-    endif
-endfunction
 
 function! FocusRange() range
     if a:firstline > 1
