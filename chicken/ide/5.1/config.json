@@ -1,0 +1,5 @@
+{
+  "credsStore": "desktop.exe",
+  "detachKeys": "ctrl-z,z",
+  "experimental": "enabled"
+}
