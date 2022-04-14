@@ -2,4 +2,5 @@
 (import apropos)
 (import repl-imports)
 (import introspect)
+(import trace)
 (current-input-port (make-linenoise-port))
