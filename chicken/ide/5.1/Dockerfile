@@ -72,7 +72,7 @@ RUN ln -sf /squashfs-root/AppRun /usr/bin/nvim
 # Install chicken-docs and other repl tools
 RUN chicken-install srfi-1 srfi-13 srfi-14 srfi-18 srfi-69
 RUN chicken-install linenoise
-RUN chicken-install apropos chicken-doc introspect trace
+RUN chicken-install apropos chicken-doc introspect trace schematic
 
 # Install repl-imports
 RUN git clone https://github.com/FullstackGJJ/repl-imports.git

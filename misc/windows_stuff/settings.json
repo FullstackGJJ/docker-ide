@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -28,97 +29,79 @@
                 "colorScheme": "Solarized Dark",
                 "cursorColor": "#FFFFFF",
                 "cursorShape": "filledBox",
-                "fontFace": "Comic Code",
+                "font": 
+                {
+                    "face": "Comic Code"
+                },
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Host Terminal",
+                "name": "Dark Terminal",
                 "padding": "5, 5, 5, 5",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "C:/Users/Hank/",
                 "suppressApplicationTitle": true,
                 "tabColor": "#002B36",
-                "tabTitle": "Host Terminal"
+                "tabTitle": "Dark Terminal"
             },
             {
                 "colorScheme": "Solarized Light",
                 "commandline": "wsl.exe -d Ubuntu",
-                "cursorColor": "#FFFFFF",
+                "cursorColor": "#FF7F50",
                 "cursorShape": "filledBox",
-                "fontFace": "Comic Code",
+                "font": 
+                {
+                    "face": "Comic Code"
+                },
                 "guid": "{6626cc3d-e1b1-4d9f-8ed4-67127fad6cd5}",
                 "hidden": false,
                 "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Docker Terminal",
+                "name": "Light Terminal",
                 "padding": "5, 5, 5, 5",
                 "startingDirectory": "C:/Users/Hank/",
                 "suppressApplicationTitle": true,
                 "tabColor": "#FDF6E3",
-                "tabTitle": "Docker Terminal"
+                "tabTitle": "Light Terminal"
             },
             {
-                "colorScheme": "One Half Dark",
-                "commandline": "wsl.exe -d Ubuntu",
-                "cursorShape": "filledBox",
-                "fontFace": "Comic Code",
-                "hidden": false,
-                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Interactive Shell",
-                "startingDirectory": "C:/Users/Hank/",
-                "suppressApplicationTitle": true,
-                "tabTitle": "Interactive"
-            },
-            {
-                "colorScheme": "Raspberry",
-                "commandline": "wsl.exe -d Ubuntu",
-                "cursorColor": "#FFFFFF",
-                "cursorShape": "filledBox",
-                "fontFace": "Comic Code",
-                "guid": "{f1bcb6a6-c28b-480c-bab7-d06682f285cf}",
-                "hidden": false,
-                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Terminal",
-                "padding": "5, 5, 5, 5",
-                "startingDirectory": "C:/Users/Hank/",
-                "suppressApplicationTitle": true,
-                "tabColor": "#3C0315",
-                "tabTitle": "Terminal"
-            },
-            {
-                "acrylicOpacity": 0.69999999999999996,
-                "colorScheme": "Frost",
-                "commandline": "wsl.exe -d Ubuntu",
-                "cursorColor": "#000000",
-                "cursorShape": "vintage",
-                "fontFace": "Comic Code",
-                "guid": "{2fccd6dc-4818-4fd1-889d-c83f9e2e42e7}",
-                "hidden": false,
-                "icon": "C:\\Users\\Hank\\Github\\docker-ide\\text-editor\\windows_stuff\\ubuntu_favicon.ico",
-                "name": "Useful Commands",
-                "padding": "5, 5, 5, 5",
-                "startingDirectory": "C:/Users/Hank/",
-                "suppressApplicationTitle": true,
-                "tabColor": "#FFFFFF",
-                "tabTitle": "Useful Commands",
-                "useAcrylic": true
-            },
-            {
-                "commandline": "powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{ffc27eff-8199-599b-a6ad-625a9bef9bf4}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2019 (2)",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{91b1063e-6e8e-52c6-b86b-ffadc3c2b022}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2019 (2)",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{83479b9a-1244-5faa-8d94-de29a9024c49}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{8b52b865-8dd3-50fe-9766-f9054433f2a9}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
