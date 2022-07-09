@@ -15,6 +15,7 @@ RUN apt-get update && \
     libncurses-dev \
     libncurses5-dev \
     libncursesw5-dev \
+    libssl-dev \
     lsb-release \
     man \
     neovim \
