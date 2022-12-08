@@ -32,6 +32,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Aligning text
 Plug 'godlygeek/tabular'
 
+" Maintain nvim layout session
+Plug 'tpope/vim-obsession'
+
 call plug#end()
 
 set completeopt=menu,menuone,noselect
