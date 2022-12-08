@@ -65,10 +65,11 @@ RUN curl -fLo root/.config/nvim/autoload/plug.vim --create-dirs https://raw.gith
 RUN nvim --headless +PlugInstall +qall >> /dev/null
 
 # Install neovim 0.6.1
-RUN curl -LO https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
-RUN chmod u+x nvim.appimage
-RUN ./nvim.appimage --appimage-extract
-RUN ln -sf /squashfs-root/AppRun /usr/bin/nvim
+# Doesn't work on M1 chip Mac
+# RUN curl -LO https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
+# RUN chmod u+x nvim.appimage
+# RUN ./nvim.appimage --appimage-extract
+# RUN ln -sf /squashfs-root/AppRun /usr/bin/nvim
 
 # Install chicken-docs and other repl tools
 RUN chicken-install srfi-1 srfi-13 srfi-14 srfi-18 srfi-69
