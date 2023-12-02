@@ -72,7 +72,7 @@ RUN nvim --headless +PlugInstall +qall >> /dev/null
 # RUN ln -sf /squashfs-root/AppRun /usr/bin/nvim
 
 # Install chicken-docs and other repl tools
-RUN chicken-install srfi-1 srfi-13 srfi-14 srfi-18 srfi-69
+RUN chicken-install srfi-1 srfi-13 srfi-14 srfi-18 srfi-64 srfi-69
 RUN chicken-install linenoise
 RUN chicken-install apropos chicken-doc introspect trace schematic
 
